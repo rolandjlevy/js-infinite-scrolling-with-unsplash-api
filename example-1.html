@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Infinite Scrolling</title>
+  </head>
+  <body>
+    <h2>Infinite Scrolling</h2>
+    <div class="test"></div>
+    <div class="wrapper" style="height: 400px; overflow: auto;">
+      <div class="content"></div>
+    </div>
+    <script>
+      const wrapper = document.querySelector(".wrapper");
+      const content = document.querySelector(".content");
+      const test = document.querySelector(".test");
+      const more = '<div style="height:1000px; background:#eee;"></div>';
+
+      
+      function scroller() { // event handler
+        // display  scroll info
+        test.innerHTML = wrapper.scrollTop + " + " + wrapper.offsetHeight + " + 100 > " + content.offsetHeight;
+        // add more contents if user scrolled down enough
+        if (wrapper.scrollTop + wrapper.offsetHeight + 100 > content.offsetHeight) {
+          content.innerHTML += more;  // fetch content to append to content.innerHTML
+        }
+      }
+
+      content.innerHTML = more;
+
+      // hook the scroll handler to scroll event
+      if (wrapper.addEventListener) { 
+        // works on all new browsers
+        wrapper.addEventListener("scroll", scroller, false);
+      } else if (wrapper.attachEvent) {            
+        // Works on old IE
+        wrapper.attachEvent("onscroll", scroller);
+      }
+
+    </script>
+  </body>
+</html>

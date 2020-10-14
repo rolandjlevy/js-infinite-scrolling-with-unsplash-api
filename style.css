@@ -1,0 +1,44 @@
+:root {
+  --img-size: 400px;
+  --scroller-width: 16px;
+}
+
+body {
+  margin: 30px;
+  box-sizing: border-box;
+  font-family: Raleway;
+}
+
+.h-align {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.img-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: var(--img-size);
+  height: var(--img-size);
+  background: linear-gradient(white, #dadada);
+}
+
+.img-wrapper > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scroll-content {
+  margin: 0 auto;
+  overflow-y: auto;
+  height: calc(var(--img-size) - 100px);
+  width: calc(var(--img-size) + var(--scroller-width));
+}
+
+.m-b-20 {
+  margin-bottom: 20px;
+}
