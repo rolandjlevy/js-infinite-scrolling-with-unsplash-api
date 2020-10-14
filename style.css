@@ -10,23 +10,6 @@ html {
   scrollbar-width: var(--scrollbar-width) !important;
 }
 
-::-webkit-scrollbar {
-  width: var(--scrollbar-width);
-}
-
-::-webkit-scrollbar-track {
-  background: #e0e0e0;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #999;
-  border-radius: 6px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #666;
-}
-
 body {
   margin: 30px;
   box-sizing: border-box;
@@ -88,4 +71,21 @@ h1, h2, h3 {
     --img-size: 240px;
     transition: all 1s ease;
   }
+}
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background: #e0e0e0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
 }
