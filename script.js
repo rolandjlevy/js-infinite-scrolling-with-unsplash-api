@@ -1,9 +1,10 @@
 const content = document.querySelector('.scroll-content');
 const wrapper = document.querySelector(".wrapper");
 const data = document.querySelector(".data");
+const count = document.querySelector(".count");
 const baseUrl = 'https://source.unsplash.com/random';
 const tolerance = 10;
-let counter = 1;
+let counter = 0;
 
 if (wrapper.addEventListener) { 
   wrapper.addEventListener("scroll", scroller, false);
@@ -12,7 +13,7 @@ if (wrapper.addEventListener) {
 }
 
 function scroller() {
-  data.innerHTML = `When scrollTop (${wrapper.scrollTop}) + frame height (${wrapper.offsetHeight}) + tolerance (${tolerance}) > inner content (${content.offsetHeight}) then load next image`;
+  getMessages();
   if (wrapper.scrollTop + wrapper.offsetHeight + tolerance > content.offsetHeight) {
     fetchRandomImage().then(randomImg => {
       generateImage(randomImg.url);
@@ -33,6 +34,7 @@ function fetchRandomImage() {
 }
 
 function generateImage(src) {
+  counter++;
   const img = document.createElement('img');
   img.src = `${src}&w=400&q=50&dpr=1`;
   const div = document.createElement('div');
@@ -41,8 +43,14 @@ function generateImage(src) {
   content.appendChild(div);
 }
 
+function getMessages() {
+  data.innerHTML = `If scrollTop (${wrapper.scrollTop.toLocaleString()}px) + frame height (${wrapper.offsetHeight}px) + tolerance (${tolerance}px) > inner content (${content.offsetHeight.toLocaleString()}px) then load next image`;
+  count.innerHTML = `Image count: ${counter}`
+}
+
 fetchRandomImage().then(randomImg => {
   generateImage(randomImg.url);
+  getMessages();
 }).catch(err => {
   console.log('Error', err);
 });

@@ -1,26 +1,48 @@
 :root {
   --img-size: 400px;
-  --scroller-width: 16px;
+  --scrollbar-width: 16px;
+}
+
+html {
+  touch-action: manipulation;
+  scroll-behavior: smooth;
+  scrollbar-color: #999 #e0e0e0 !important;
+  scrollbar-width: var(--scrollbar-width) !important;
+}
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background: #e0e0e0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
 }
 
 body {
   margin: 30px;
   box-sizing: border-box;
-  font-family: Raleway;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.875rem;
 }
 
-/* .scroll-content {
-  margin: 0 auto;
-  overflow-y: scroll;
-  height: calc(var(--img-size) - 100px);
-  width: calc(var(--img-size) + var(--scroller-width));
-} */
+h1, h2, h3 {
+  font-weight: 800;
+}
 
 .wrapper {
   margin: 0 auto;
   overflow-y: scroll;
-  height: calc(var(--img-size) - 100px);
-  width: calc(var(--img-size) + var(--scroller-width));
+  height: calc(var(--img-size) - 50px);
+  width: calc(var(--img-size) + var(--scrollbar-width));
 }
 
 .img-wrapper {
@@ -48,4 +70,22 @@ body {
 
 .m-b-20 {
   margin-bottom: 20px;
+}
+
+.m-t-20 {
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 480px) {
+  :root {
+    --img-size: 320px;
+    transition: all 1s ease;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  :root {
+    --img-size: 240px;
+    transition: all 1s ease;
+  }
 }
