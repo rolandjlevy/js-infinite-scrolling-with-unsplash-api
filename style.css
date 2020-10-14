@@ -9,11 +9,18 @@ body {
   font-family: Raleway;
 }
 
-.h-align {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+/* .scroll-content {
+  margin: 0 auto;
+  overflow-y: scroll;
+  height: calc(var(--img-size) - 100px);
+  width: calc(var(--img-size) + var(--scroller-width));
+} */
+
+.wrapper {
+  margin: 0 auto;
+  overflow-y: scroll;
+  height: calc(var(--img-size) - 100px);
+  width: calc(var(--img-size) + var(--scroller-width));
 }
 
 .img-wrapper {
@@ -32,11 +39,11 @@ body {
   object-fit: cover;
 }
 
-.scroll-content {
-  margin: 0 auto;
-  overflow-y: auto;
-  height: calc(var(--img-size) - 100px);
-  width: calc(var(--img-size) + var(--scroller-width));
+.h-align {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
 .m-b-20 {

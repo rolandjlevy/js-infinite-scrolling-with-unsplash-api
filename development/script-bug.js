@@ -1,19 +1,19 @@
 const content = document.querySelector('.scroll-content');
-const wrapper = document.querySelector(".wrapper");
-const data = document.querySelector(".data");
+const display = document.querySelector('.display');
 const baseUrl = 'https://source.unsplash.com/random';
-const tolerance = 10;
 let counter = 1;
 
-if (wrapper.addEventListener) { 
-  wrapper.addEventListener("scroll", scroller, false);
-} else if (wrapper.attachEvent) {
-  wrapper.attachEvent("onscroll", scroller);
+if (content.addEventListener) {
+  content.addEventListener('scroll', scroller, false);
+} else if (content.attachEvent) {     
+  content.attachEvent('onscroll', scroller);
 }
 
 function scroller() {
-  data.innerHTML = `When scrollTop (${wrapper.scrollTop}) + frame height (${wrapper.offsetHeight}) + tolerance (${tolerance}) > inner content (${content.offsetHeight}) then load next image`;
-  if (wrapper.scrollTop + wrapper.offsetHeight + tolerance > content.offsetHeight) {
+  const scrollHeight = content.scrollHeight;
+  const scrollTop = content.scrollTop;
+  const clientHeight = content.clientHeight;
+  if (scrollHeight - scrollTop == clientHeight) {
     fetchRandomImage().then(randomImg => {
       generateImage(randomImg.url);
     }).catch(err => {
