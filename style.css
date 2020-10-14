@@ -30,7 +30,7 @@ h1, h2, h3 {
 
 .img-wrapper {
   position: relative;
-  display: inline-block;
+  display: block;
   margin: 0;
   padding: 0;
   width: var(--img-size);

@@ -44,7 +44,9 @@ function generateImage(src) {
 }
 
 function getMessages() {
-  data.innerHTML = `If scrollTop (${wrapper.scrollTop.toLocaleString()}px) + frame height (${wrapper.offsetHeight}px) + tolerance (${tolerance}px) > inner content (${content.offsetHeight.toLocaleString()}px) then load next image`;
+  const scrollTop = Math.round(wrapper.scrollTop).toLocaleString();
+  const offsetHeight = Math.round(content.offsetHeight).toLocaleString();
+  data.innerHTML = `If scrollTop (${scrollTop}px) + frame height (${wrapper.offsetHeight}px) + tolerance (${tolerance}px) > inner content (${offsetHeight}px) then load next image`;
   count.innerHTML = `Image count: ${counter}`
 }
 
