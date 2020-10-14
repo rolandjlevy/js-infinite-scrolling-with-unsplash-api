@@ -5,4 +5,4 @@ Infinite scrolling means content loads infinitely while scrolling occurs. Once t
 ### Links 🔗
 - [See the live demo](https://js-infinite-scrolling-with-unsplash-api.rjlevy.repl.co/)
 - [View the source code](https://repl.it/@rjlevy/js-infinite-scrolling-with-unsplash-api)
-- [Explore the Github repo](https://github.com/rolandjlevy/js-fluid-grid-of-images)
+- [Explore the Github repo](https://github.com/rolandjlevy/js-infinite-scrolling-with-unsplash-api)
