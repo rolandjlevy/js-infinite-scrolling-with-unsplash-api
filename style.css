@@ -91,7 +91,7 @@ details.description {
   color: #666;
 }
 
-details.description:hover {
+details.description:hover > summary::after {
   color: #000;
 }
 
