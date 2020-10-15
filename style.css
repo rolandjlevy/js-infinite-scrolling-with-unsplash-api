@@ -3,6 +3,11 @@
   --scrollbar-width: 16px;
 }
 
+* {
+  /* border: 1px solid grey; */
+}
+
+
 html {
   touch-action: manipulation;
   scroll-behavior: smooth;
@@ -57,6 +62,10 @@ h1, h2, h3 {
 
 .m-t-20 {
   margin-top: 20px;
+}
+
+.m-l-20 {
+  margin-left: 20px;
 }
 
 @media only screen and (max-width: 480px) {
