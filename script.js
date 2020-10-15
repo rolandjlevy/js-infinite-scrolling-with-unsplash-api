@@ -43,16 +43,16 @@ function generateImage(src) {
   content.appendChild(div);
 }
 
-function getMessages() {
-  const scrollTop = Math.round(wrapper.scrollTop).toLocaleString();
-  const offsetHeight = Math.round(content.offsetHeight).toLocaleString();
-  data.innerHTML = `If scrollTop (${scrollTop}px) + frame height (${wrapper.offsetHeight}px) + tolerance (${tolerance}px) > inner content (${offsetHeight}px) then load next image`;
-  count.innerHTML = `Image count: ${counter}`
-}
-
 fetchRandomImage().then(randomImg => {
   generateImage(randomImg.url);
   getMessages();
 }).catch(err => {
   console.log('Error', err);
 });
+
+function getMessages() {
+  const scrollTop = Math.round(wrapper.scrollTop).toLocaleString();
+  const offsetHeight = Math.round(content.offsetHeight).toLocaleString();
+  data.innerHTML = `If scrollTop (${scrollTop}px) + frame height (${wrapper.offsetHeight}px) + tolerance (${tolerance}px) > inner content (${offsetHeight}px) then load next image`;
+  count.innerHTML = `Image count: ${counter}`
+}

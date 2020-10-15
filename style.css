@@ -73,6 +73,28 @@ h1, h2, h3 {
   }
 }
 
+details.description[open] > summary::after {
+  content: attr(data-open);
+}
+
+details.description:not([open]) > summary::after {
+  content: attr(data-close);
+}
+
+details.description > summary {
+  margin-bottom:10px; 
+  cursor:pointer; 
+  outline:none;
+}
+
+details.description {
+  color: #666;
+}
+
+details.description:hover {
+  color: #000;
+}
+
 ::-webkit-scrollbar {
   width: var(--scrollbar-width);
 }
