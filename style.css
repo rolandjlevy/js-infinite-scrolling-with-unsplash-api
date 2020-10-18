@@ -11,8 +11,6 @@
 html {
   touch-action: manipulation;
   scroll-behavior: smooth;
-  scrollbar-color: #999 #e0e0e0 !important;
-  scrollbar-width: var(--scrollbar-width) !important;
 }
 
 body {
@@ -31,6 +29,8 @@ h1, h2, h3 {
   overflow-y: scroll;
   height: calc(var(--img-size) - 50px);
   width: calc(var(--img-size) + var(--scrollbar-width));
+  scrollbar-color: #999 #e0e0e0 !important;
+  scrollbar-width: var(--scrollbar-width) !important;
 }
 
 .img-wrapper {
@@ -104,19 +104,19 @@ details.description:hover > summary::after {
   color: #000;
 }
 
-::-webkit-scrollbar {
+.wrapper::-webkit-scrollbar {
   width: var(--scrollbar-width);
 }
 
-::-webkit-scrollbar-track {
+.wrapper::-webkit-scrollbar-track {
   background: #e0e0e0;
 }
 
-::-webkit-scrollbar-thumb {
+.wrapper::-webkit-scrollbar-thumb {
   background: #999;
   border-radius: 6px;
 }
 
-::-webkit-scrollbar-thumb:hover {
+.wrapper::-webkit-scrollbar-thumb:hover {
   background: #666;
 }
