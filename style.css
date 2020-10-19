@@ -29,8 +29,6 @@ h1, h2, h3 {
   overflow-y: scroll;
   height: calc(var(--img-size) - 50px);
   width: calc(var(--img-size) + var(--scrollbar-width));
-  scrollbar-color: #999 #e0e0e0 !important;
-  scrollbar-width: var(--scrollbar-width) !important;
 }
 
 .img-wrapper {
@@ -104,17 +102,23 @@ details.description:hover > summary::after {
   color: #000;
 }
 
+.wrapper {
+  scrollbar-color: #999 #e9e9e9 !important;
+  scrollbar-width: var(--scrollbar-width) !important;
+}
+
 .wrapper::-webkit-scrollbar {
-  width: var(--scrollbar-width);
+  width: 16px;
 }
 
 .wrapper::-webkit-scrollbar-track {
-  background: #e0e0e0;
+  background: #e9e9e9;
 }
 
 .wrapper::-webkit-scrollbar-thumb {
   background: #999;
-  border-radius: 6px;
+  border: 3px solid #e9e9e9;
+  min-height: 40px;
 }
 
 .wrapper::-webkit-scrollbar-thumb:hover {
