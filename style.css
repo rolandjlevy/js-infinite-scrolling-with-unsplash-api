@@ -1,10 +1,12 @@
 :root {
   --img-size: 400px;
   --scrollbar-width: 16px;
+  transition: all 1s ease;
 }
 
 * {
   /* border: 1px solid grey; */
+  font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -16,12 +18,33 @@ html {
 body {
   margin: 30px;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
   font-size: 0.875rem;
 }
 
-h1, h2, h3 {
+.infinite-bg {
+  background: radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #dfdfdf 10px, rgba(96, 16, 48, 0) 11px) 0px 10px,
+radial-gradient(at 100% 100%,rgba(96, 16, 48, 0) 9px, #dfdfdf 10px, rgba(96, 16, 48, 0) 11px),rgb(243, 243, 243);
+  background-size: 20px 20px;
+}
+
+h2 {
+  font-size: 2rem;
   font-weight: 800;
+  transition: all 0.25s ease;
+}
+
+h2 > i {
+  font-size: 1.75rem;
+  color: #666;
+}
+
+.container {
+  max-width: 500px;
+  min-width: 300px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px -5px #00000066;
 }
 
 .wrapper {
@@ -45,17 +68,46 @@ h1, h2, h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  cursor: pointer;
 }
 
-.h-align {
+.boxed {
+  padding: 4px 8px;
+  border: 1px solid grey;
+}
+
+.v-align, .h-align {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   text-align: center;
 }
 
+.v-align {
+  flex-direction: column;
+}
+
+.h-align {
+  flex-direction: row;
+}
+
+.p-rl-20, .p-lr-20 {
+  padding: 0 20px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.p-30 {
+  padding: 30px;
+}
+
 .m-b-20 {
   margin-bottom: 20px;
+}
+
+.m-b-10 {
+  margin-bottom: 10px;
 }
 
 .m-t-20 {
@@ -66,17 +118,28 @@ h1, h2, h3 {
   margin-left: 20px;
 }
 
-@media only screen and (max-width: 480px) {
+.b-l-0 {
+  border-left: none;
+}
+
+@media only screen and (max-width: 500px) {
   :root {
     --img-size: 320px;
     transition: all 1s ease;
   }
+  h2 {
+    font-size: 1.75rem;
+  }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 420px) {
   :root {
     --img-size: 240px;
     transition: all 1s ease;
+  }
+  h2 {
+    font-size: 1.5rem;
+    transition: all 0.25s ease;
   }
 }
 
@@ -100,6 +163,34 @@ details.description {
 
 details.description:hover > summary::after {
   color: #000;
+}
+
+/*////////*/
+/* Footer */
+
+footer {
+  text-align: center;
+  color: #666;
+  bottom: 0;
+}
+
+footer a {
+  color: #666;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+footer a:hover {
+  color: #000;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.new-tab-icon::after {
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900; 
+  content: "\f35d";
+  margin-left: 5px;
 }
 
 .wrapper {
