@@ -18,13 +18,23 @@ html {
 body {
   margin: 30px;
   box-sizing: border-box;
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .infinite-bg {
-  background: radial-gradient(circle at 0% 50%, #60103000 9px, #dfdfdf 10px, rgba(96, 16, 48, 0) 11px) 0px 10px,
-radial-gradient(at 100% 100%,#60103000 9px, #dfdfdf 10px, #60103000 11px),#f3f3f3;
-  background-size: 20px 20px;
+  background:
+radial-gradient(circle at 0% 50%, 
+  rgba(96, 16, 48, 0) 
+  9px, 
+  rgb(170, 0, 85) 10px, 
+  rgba(96, 16, 48, 0) 11px) 0px 10px,
+
+radial-gradient(at 100% 100%,      
+  rgba(96, 16, 48, 0) 9px, 
+  rgb(170, 0, 85) 10px, 
+  rgba(96, 16, 48, 0) 11px),
+rgb(66, 0, 33);
+background-size: 20px 20px;
 }
 
 h2 {
@@ -167,23 +177,26 @@ details.description:hover > summary::after {
 
 /*////////*/
 /* Footer */
+/*////////*/
 
 footer {
+  color: #ffebf5;
   text-align: center;
-  color: #666;
   bottom: 0;
 }
 
 footer a {
-  color: #666;
+  color: #ffebf5;
   font-weight: bold;
+  text-decoration: none;
   transition: all 0.2s ease;
 }
 
 footer a:hover {
-  color: #000;
+  color: #fff;
   transition: all 0.2s ease;
-  text-decoration: none;
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .new-tab-icon::after {
