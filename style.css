@@ -1,5 +1,6 @@
 :root {
-  --img-size: 400px;
+  --img-width-size: 450px;
+  --img-height-size: 600px;
   --scrollbar-width: 16px;
   transition: all 1s ease;
 }
@@ -23,25 +24,18 @@ body {
 
 .infinite-bg {
   background:
-radial-gradient(circle at 0% 50%, 
-  rgba(96, 16, 48, 0) 
-  9px, 
-  rgb(170, 0, 85) 10px, 
+  radial-gradient(circle at 0% 50%, #60103000 9px, #0074aa 10px, 
   rgba(96, 16, 48, 0) 11px) 0px 10px,
-
-radial-gradient(at 100% 100%,      
-  rgba(96, 16, 48, 0) 9px, 
-  rgb(170, 0, 85) 10px, 
-  rgba(96, 16, 48, 0) 11px),
-rgb(66, 0, 33);
-background-size: 20px 20px;
+  radial-gradient(at 100% 100%,#60103000 9px,#0074aa 10px, #60103000 11px),#00567e;
+  background-size: 20px 20px;
 }
 
 h2 {
   font-size: 2rem;
   font-weight: 800;
   transition: all 0.25s ease;
-  color: #aa0055;
+  color: #0074aa;
+  margin: 25px 0 15px 0;
 }
 
 h2 > i {
@@ -49,8 +43,8 @@ h2 > i {
 }
 
 .container {
-  max-width: 500px;
-  min-width: 300px;
+  max-width: 600px;
+  min-width: 240px;
   margin: 0 auto;
   background-color: #fff;
   border-radius: 10px;
@@ -60,8 +54,8 @@ h2 > i {
 .wrapper {
   margin: 0 auto;
   overflow-y: scroll;
-  height: calc(var(--img-size) - 50px);
-  width: calc(var(--img-size) + var(--scrollbar-width));
+  width: calc(var(--img-width-size) + var(--scrollbar-width));
+  height: calc(var(--img-height-size) - 50px);
 }
 
 .img-wrapper {
@@ -69,9 +63,19 @@ h2 > i {
   display: block;
   margin: 0;
   padding: 0;
-  width: var(--img-size);
-  height: var(--img-size);
-  background: linear-gradient(white, #dadada);
+  width: var(--img-width-size);
+  height: var(--img-height-size);
+  /* background: linear-gradient(white, #dadada); */
+  background: radial-gradient(circle at 0% 50%, 
+  #60103000 9px, #ddd 10px, #60103000 11px) 0px 10px, radial-gradient(at 100% 100%, #60103000 9px, #ddd 10px, #60103000 11px),#f6f6f6;
+  background-size: 20px 20px;
+}
+
+.img-loading {
+  color: black;
+  font-size: 2rem;
+  margin-top: 2rem;
+  background: transparent;
 }
 
 .img-wrapper > img {
@@ -132,9 +136,10 @@ h2 > i {
   border-left: none;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   :root {
-    --img-size: 320px;
+    --img-width-size: 360px;
+    --img-height-size: 480px;
     transition: all 1s ease;
   }
   h2 {
@@ -142,9 +147,10 @@ h2 > i {
   }
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 480px) {
   :root {
-    --img-size: 240px;
+    --img-width-size: 270px;
+    --img-height-size: 360px;
     transition: all 1s ease;
   }
   h2 {
@@ -162,9 +168,15 @@ details.description:not([open]) > summary::after {
 }
 
 details.description > summary {
-  margin-bottom:10px; 
-  cursor:pointer; 
-  outline:none;
+  margin-bottom: 10px; 
+  cursor: pointer; 
+  outline: none;
+}
+
+details.description > .data {
+  width: calc(var(--img-width-size) + var(--scrollbar-width) * 2);
+  background: none;
+  margin: 0 auto;
 }
 
 details.description {
@@ -180,13 +192,13 @@ details.description:hover > summary::after {
 /*////////*/
 
 footer {
-  color: #ffebf5;
+  color: #f0faff;
   text-align: center;
   bottom: 0;
 }
 
 footer a {
-  color: #ffebf5;
+  color: #f0faff;
   font-weight: bold;
   text-decoration: none;
   transition: all 0.2s ease;
