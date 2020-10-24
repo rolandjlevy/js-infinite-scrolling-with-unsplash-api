@@ -53,7 +53,7 @@ h2 > i {
 
 .wrapper {
   margin: 0 auto;
-  overflow-y: scroll;
+  overflow-y: auto;
   width: calc(var(--img-width-size) + var(--scrollbar-width));
   height: calc(var(--img-height-size) - 50px);
 }

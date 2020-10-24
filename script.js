@@ -1,8 +1,10 @@
-const content = document.querySelector('.scroll-content');
-const wrapper = document.querySelector(".wrapper");
-const data = document.querySelector(".data");
-const count = document.querySelector(".count");
-const loading = document.querySelector(".loading");
+import { createElement, getElement } from '/src/utils.js';
+
+const content = getElement('.scroll-content');
+const wrapper = getElement(".wrapper");
+const data = getElement(".data");
+const count = getElement(".count");
+const loading = getElement(".loading");
 const baseUrl = 'https://source.unsplash.com/random';
 const tolerance = 10;
 let counter = 0;
@@ -37,10 +39,10 @@ function fetchRandomImage() {
 
 function generateImage(src) {
   counter++;
-  const img = document.createElement('img');
+  const img = createElement('img');
   img.src = `${src}&w=400&q=50&dpr=1`;
   img.setAttribute('data-src', src);
-  const div = document.createElement('div');
+  const div = createElement('div');
   div.classList.add('img-wrapper');
   div.appendChild(img);
   div.addEventListener('click', (e) => {
@@ -49,13 +51,6 @@ function generateImage(src) {
   content.appendChild(div);
 }
 
-fetchRandomImage().then(randomImg => {
-  generateImage(randomImg.url);
-  getMessages();
-}).catch(err => {
-  console.log('Error', err);
-});
-
 function getMessages() {
   const scrollTop = Math.round(wrapper.scrollTop).toLocaleString();
   const offsetHeight = Math.round(content.offsetHeight).toLocaleString();
@@ -63,3 +58,12 @@ function getMessages() {
   count.textContent = `Image count: ${counter}`;
   loading.textContent = `All loaded`;
 }
+
+document.addEventListener('DOMContentLoaded', (e) => {
+  fetchRandomImage().then(randomImg => {
+    generateImage(randomImg.url);
+    getMessages();
+  }).catch(err => {
+    console.log('Error', err);
+  });
+});
