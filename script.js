@@ -40,7 +40,7 @@ function fetchRandomImage() {
 function generateImage(src) {
   counter++;
   const img = createElement('img');
-  img.src = `${src}&w=400&q=50&dpr=1`;
+  img.src = `${src}&w=450&h=600&q=50&dpr=1`;
   img.setAttribute('data-src', src);
   const div = createElement('div');
   div.classList.add('img-wrapper');
@@ -62,6 +62,7 @@ function getMessages() {
 document.addEventListener('DOMContentLoaded', (e) => {
   fetchRandomImage().then(randomImg => {
     generateImage(randomImg.url);
+    console.log(randomImg.url)
     getMessages();
   }).catch(err => {
     console.log('Error', err);
