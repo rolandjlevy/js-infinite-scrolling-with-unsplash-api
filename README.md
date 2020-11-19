@@ -2,7 +2,7 @@
 
 Infinite scrolling is a way of loading content continuously with scrolling - thereby eliminating the need for pagination 📖  
 
-Try out this example by scrolling down to see images loading infinitely. Once the content reaches the end of the scrollable area a new random image is loaded from the [Unsplash API](https://source.unsplash.com/)  
+Try out this example by scrolling down to see images loading infinitely. Once the content reaches the end of the scrollable area a new random image is loaded from the [Unsplash API](https://source.unsplash.com)
 
 Click on the images to see the full size version in a new window 🖼️ 
 
