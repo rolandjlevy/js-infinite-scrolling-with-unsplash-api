@@ -1,23 +1,22 @@
-import { createElement, getElement } from '/src/utils.js';
+const createElement = (tag, className) => {
+  const element = document.createElement(tag);
+  if (className) element.classList.add(className);
+  return element;
+}
 
-const content = getElement('.scroll-content');
-const wrapper = getElement(".wrapper");
-const data = getElement(".data");
-const count = getElement(".count");
-const loading = getElement(".loading");
-const baseUrl = 'https://source.unsplash.com/random';
+const $ = (selector) => document.querySelector(selector);
 const tolerance = 10;
 let counter = 0;
 
-if (wrapper.addEventListener) { 
-  wrapper.addEventListener("scroll", scroller, false);
-} else if (wrapper.attachEvent) {
-  wrapper.attachEvent("onscroll", scroller);
+if ($(".wrapper").addEventListener) { 
+  $(".wrapper").addEventListener("scroll", scroller, false);
+} else if ($(".wrapper").attachEvent) {
+  $(".wrapper").attachEvent("onscroll", scroller);
 }
 
 function scroller() {
-  if (wrapper.scrollTop + wrapper.offsetHeight + tolerance > content.offsetHeight) {
-    loading.textContent = `Loading...`;
+  if ($(".wrapper").scrollTop + $(".wrapper").offsetHeight + tolerance > $('.scroll-content').offsetHeight) {
+    $(".loading").textContent = `Loading...`;
     fetchRandomImage().then(randomImg => {
       generateImage(randomImg.url);
       getMessages();
@@ -28,6 +27,7 @@ function scroller() {
 }
 
 function fetchRandomImage() {
+  const baseUrl = 'https://source.unsplash.com/random';
   const randomNum = Math.floor(Math.random() * 10000);
   const url = `${baseUrl}/${randomNum}`;
   return new Promise((resolve, reject) => {
@@ -48,21 +48,20 @@ function generateImage(src) {
   div.addEventListener('click', (e) => {
     open(e.target.dataset.src, '_blank');
   });
-  content.appendChild(div);
+  $('.scroll-content').appendChild(div);
 }
 
 function getMessages() {
-  const scrollTop = Math.round(wrapper.scrollTop).toLocaleString();
-  const offsetHeight = Math.round(content.offsetHeight).toLocaleString();
-  data.innerHTML = `If scrollTop (${scrollTop}px) + frame height (${wrapper.offsetHeight}px) + tolerance (${tolerance}px) > inner content (${offsetHeight}px) then load next image`;
-  count.textContent = `Image count: ${counter}`;
-  loading.textContent = `All loaded`;
+  const scrollTop = Math.round($(".wrapper").scrollTop).toLocaleString();
+  const offsetHeight = Math.round($('.scroll-content').offsetHeight).toLocaleString();
+  $(".data").innerHTML = `If scrollTop (${scrollTop}px) + frame height (${$(".wrapper").offsetHeight}px) + tolerance (${tolerance}px) > inner content (${offsetHeight}px) then load next image`;
+  $(".count").textContent = `Image count: ${counter}`;
+  $(".loading").textContent = `All loaded`;
 }
 
 document.addEventListener('DOMContentLoaded', (e) => {
   fetchRandomImage().then(randomImg => {
     generateImage(randomImg.url);
-    console.log(randomImg.url)
     getMessages();
   }).catch(err => {
     console.log('Error', err);
