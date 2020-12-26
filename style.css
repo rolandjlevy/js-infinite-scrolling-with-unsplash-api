@@ -53,12 +53,11 @@ h2 > i {
 }
 
 .scroll-content {
-  margin-left: 16px;
   overflow: hidden;
 }
 
 .wrapper {
-  margin: 0 auto;
+  margin: 16px 0 16px 16px;
   overflow-y: auto;
   width: calc(var(--img-width-size) + var(--scrollbar-width));
   height: calc(var(--img-height-size) - 50px);
