@@ -1,6 +1,6 @@
 :root {
   --img-width-size: 450px;
-  --img-height-size: 600px;
+  --img-height-size: 450px;
   --scrollbar-width: 16px;
   transition: all 1s ease;
 }
@@ -25,7 +25,7 @@ body {
 
 h2 {
   font-size: 2rem;
-  font-weight: 800;
+  font-weight: bold;
   transition: all 0.25s ease;
   color: #0074aa;
   margin: 25px 0 15px 0;
@@ -54,14 +54,16 @@ h2 > i {
 
 .scroll-content {
   overflow: hidden;
+  background-color: #e9e9e9;
 }
 
 .wrapper {
-  margin: 16px 0 16px 16px;
+  padding-left: 16px;
+  margin: 20px 0;
   overflow-y: auto;
   width: calc(var(--img-width-size) + var(--scrollbar-width));
   height: calc(var(--img-height-size) - 50px);
-  background: #e9e9e9;
+  background-color: #e9e9e9;
 }
 
 .img-wrapper {
@@ -145,7 +147,7 @@ h2 > i {
 @media only screen and (max-width: 600px) {
   :root {
     --img-width-size: 360px;
-    --img-height-size: 480px;
+    --img-height-size: 360px;
     transition: all 1s ease;
   }
   h2 {
@@ -155,8 +157,8 @@ h2 > i {
 
 @media only screen and (max-width: 480px) {
   :root {
-    --img-width-size: 270px;
-    --img-height-size: 360px;
+    --img-width-size: 240px;
+    --img-height-size: 240px;
     transition: all 1s ease;
   }
   h2 {
