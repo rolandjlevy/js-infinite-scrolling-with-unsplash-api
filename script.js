@@ -7,6 +7,7 @@ const createElement = (tag, className) => {
 const $ = (selector) => document.querySelector(selector);
 const tolerance = 10;
 let counter = 0;
+$('#year').textContent = new Date().getFullYear();
 
 if ($(".wrapper").addEventListener) { 
   $(".wrapper").addEventListener("scroll", scroller, false);
