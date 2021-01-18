@@ -1,6 +1,6 @@
 :root {
   --img-width-size: 450px;
-  --img-height-size: 450px;
+  --img-height-size: 600px;
   --scrollbar-width: 16px;
   transition: all 1s ease;
 }
@@ -8,7 +8,6 @@
 * {
   font-family: 'Open Sans', sans-serif;
 }
-
 
 html {
   touch-action: manipulation;
@@ -73,7 +72,6 @@ h2 > i {
   padding: 0;
   width: var(--img-width-size);
   height: var(--img-height-size);
-  /* background: linear-gradient(white, #dadada); */
   background: radial-gradient(circle at 0% 50%, 
   #60103000 9px, #ddd 10px, #60103000 11px) 0px 10px, radial-gradient(at 100% 100%, #60103000 9px, #ddd 10px, #60103000 11px),#f6f6f6;
   background-size: 20px 20px;
@@ -91,6 +89,21 @@ h2 > i {
   height: 100%;
   object-fit: cover;
   cursor: pointer;
+}
+
+.fade-in {
+  animation-name: fade-in-animation;
+  animation-duration: 1s;
+  animation-direction: forwards;
+}
+
+@keyframes fade-in-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .boxed {
@@ -147,7 +160,7 @@ h2 > i {
 @media only screen and (max-width: 600px) {
   :root {
     --img-width-size: 360px;
-    --img-height-size: 360px;
+    --img-height-size: 480px;
     transition: all 1s ease;
   }
   h2 {
@@ -158,7 +171,7 @@ h2 > i {
 @media only screen and (max-width: 480px) {
   :root {
     --img-width-size: 240px;
-    --img-height-size: 240px;
+    --img-height-size: 320px;
     transition: all 1s ease;
   }
   h2 {
@@ -182,9 +195,11 @@ details.description > summary {
 }
 
 details.description > .data {
-  width: calc(var(--img-width-size) + var(--scrollbar-width) * 2);
+  --padding: 10px;
+  width: calc(var(--img-width-size) - var(--padding) * 2 + var(--scrollbar-width) * 2);
   background: none;
   margin: 0 auto;
+  padding: 0 var(--padding);
 }
 
 details.description {
